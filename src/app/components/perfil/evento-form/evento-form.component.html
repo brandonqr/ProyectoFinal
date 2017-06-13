@@ -1,3 +1,77 @@
-<p>
-  evento-form works!
-</p>
+
+<form [formGroup]="eventoForm" (ngSubmit)="crearQuack()">
+  <div class="form-group row" [ngClass]="{'has-danger': !eventoForm.get('nombre').valid}">
+    <label>Nombre:</label>
+    <input type="text"
+           class="form-control"
+           placeholder="Entra un nombre..."
+           formControlName="nombre">
+    <div *ngIf="eventoForm.get('nombre').errors?.required"
+          class="form-control-feedback">
+          este campo es requerido
+    </div>
+    <div *ngIf="eventoForm.get('nombre').errors?.minlength"
+          class="form-control-feedback">
+          Por lo menos {{eventoForm.get('nombre').errors.minLengths}} caracteres
+    </div>
+  </div>
+  <div class="form-group row">
+     <label>Descripcion:</label>
+     <textarea type="text"
+            class="form-control"
+            placeholder="Entra una descripcion..."
+            formControlName="descripcion"
+            ></textarea>
+  </div>
+  <!--
+  <div class="form-group row">
+     <label>Categoria:</label>
+     <textarea type="text"
+            class="form-control"
+            placeholder="Entra categoria(s)..."
+            formControlName="categoria"
+            ></textarea>
+            <small>separa las categorias por comas</small>
+  </div>
+-->
+
+  <div class="form-group row">
+
+    <label>Ubicacion:</label>
+  </div>
+  <h1>{{ title }}</h1>
+
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker
+    [latitude]="lat"
+    [longitude]="lng"
+    [markerDraggable]=true
+    (dragEnd)="dragEndMarcador( this, $event )"
+    >
+  </agm-marker>
+  </agm-map>
+<!--
+  <div class="form-group row">
+
+    <label>Imagen:</label>
+    <label class="custom-file form-control" >
+      <input type="file" id="file" class="custom-file-input form-control" (change)="getFiles($event)"  formControlName="imagen">
+      <span class="custom-file-control" id="spanFile"></span>
+    </label>
+  </div>
+-->
+  <div class="form-group row">
+  <label>Fecha:</label>
+  <input type="date" name="" value="" class="form-control">
+
+  </div>
+  <div class="form-group row">
+    <button type="submit" class="btn-outline-success btn-block">
+      Crear Formulario
+    </button>
+  </div>
+  {{ eventoForm.valid }}
+</form>

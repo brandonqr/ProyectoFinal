@@ -8,6 +8,7 @@ import { LoginRegistroModalComponent } from './components/login-registro-modal/l
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { MiPerfilComponent } from './components/perfil/mi-perfil/mi-perfil.component';
 import { EventoFormComponent } from './components/perfil/evento-form/evento-form.component';
+import { AgmCoreModule } from '@agm/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //rutas
@@ -30,6 +31,9 @@ import { imgDefaultPipe } from "./pipes/imageDefault.pipe";
     imgDefaultPipe
   ],
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDSk0wgg8zV26dmBb6LrcNsT9oxa8Hk4fs'
+    }),
     BrowserModule,
     HttpModule,
     APP_ROUTING,
