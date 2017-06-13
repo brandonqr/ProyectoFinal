@@ -1,3 +1,8 @@
-<p>
-  mi-perfil works!
-</p>
+
+
+<div *ngIf="usuario">
+  <div class="portadaPerfil" [ngStyle]="{'background-image': 'url( ../../../assets/img/portada.png  )'}">
+    <img class="fotoPerfil" [src]="usuario.imagen | imgDefaultPipe" alt="">
+  </div>
+</div>
+{{ usuario | json}}

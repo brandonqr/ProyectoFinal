@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from "../../services/usuario.service";
 
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.css']
+  styles: []
 })
 export class PerfilComponent implements OnInit {
+public usuario:any;
+  constructor(private uService:UsuarioService) {
 
-  constructor() { }
+   }
 
   ngOnInit() {
+    this.usuario=this.uService.getUsuario();
   }
 
 }
