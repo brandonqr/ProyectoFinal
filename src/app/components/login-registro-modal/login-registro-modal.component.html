@@ -1,0 +1,132 @@
+
+  <!-- Trigger the modal with a button -->
+  <div *ngIf="!usuario">
+    <i (click)="abrirModal()" id="myBtn" class="fa fa-2x fa-user"></i>
+  </div>
+
+<div class="dropdown" *ngIf="usuario">
+
+  <div  id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [ngStyle]="{'background-image': 'url( ' +(usuario.imagen | imgDefaultPipe )+ ')'}">
+  </div>
+  <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item btnMenuperfil btn-outline-danger" type="button" [routerLink]='["perfil"]'><i class="fa fa-user" aria-hidden="true"></i></button>
+    <button class="dropdown-item btnMenuperfil btn-outline-danger" type="button">C</button>
+    <button
+            class="dropdown-item btnMenuperfil btn-outline-danger"
+            type="button" (click)="cerrarSesion()" ><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+  </div>
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalLogin" >
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+
+      <div class="modal-content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="login">
+            <div class="modal-body">
+              <h1 class="text-center">Login</h1>
+              <div *ngIf="errorMsg">
+                <div class="alert alert-danger" role="alert">
+                  <strong>Error!</strong> {{errorMsg}}
+              </div>
+              </div>
+              <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate="novalidate">
+
+                <div class="input-group">
+                  <span class="input-group-addon" ><i class="fa fa-2x fa-user" ></i></span>
+                  <input type="text"
+                         class="form-control"
+                         placeholder="E-mail"
+                         formControlName="email"
+                         >
+                </div>
+
+                <div class="input-group">
+                  <span class="input-group-addon" ><i class="fa fa-2x fa-lock" ></i></span>
+                  <input type="password"
+                          class="form-control"
+                          placeholder="Password"
+                          formControlName="password">
+                </div>
+                  <button type="submit" class="btn btn-success btn-block">Login</button>
+
+              </form>
+
+            </div>
+          </div>
+          </div>
+          <div class="col-md-12">
+            <div class="registro">
+            <div class="modal-body">
+              <h1 class="text-center">Registro</h1>
+              <div *ngIf="errRegistro.length>0">
+                <div   class="alert alert-danger" role="alert" *ngFor="let err of errRegistro">
+                  <strong>Error!</strong> {{err}}
+                </div>
+              </div>
+              <div *ngIf="usuarioRegistrado">
+                <div class="alert alert-success" role="alert">
+                  <strong>Felicidades!</strong> Usuario registrado con exito. <small>En unos momentos estarás logeado</small>.
+                </div>
+              </div>
+              <form [formGroup]="registroForm" (ngSubmit)="registro()" novalidate="novalidate">
+
+                <div class="input-group">
+                  <span class="input-group-addon" ><i class="fa fa-2x fa-user" ></i></span>
+                  <input type="text"
+                         class="form-control"
+                         placeholder="Nombre..."
+                         formControlName="nombre">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon" ><i class="fa fa-2x fa-user" ></i></span>
+                  <input type="text"
+                         class="form-control"
+                         placeholder="Apellidos..."
+                         formControlName="apellidos">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon" ><i class="fa fa-2x fa-user" ></i></span>
+                  <input type="text"
+                         class="form-control"
+                         placeholder="Nickname..."
+                         formControlName="nickname">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon" ><i class="fa fa-2x fa-user" ></i></span>
+                  <input type="text"
+                         class="form-control"
+                         placeholder="E-mail..."
+                         formControlName="email">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon" ><i class="fa fa-2x fa-lock" ></i></span>
+                  <input type="password"
+                          class="form-control"
+                          placeholder="Password"
+                          formControlName="password">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon" ><i class="fa fa-2x fa-lock" ></i></span>
+                  <input type="date"
+                          class="form-control"
+                          formControlName="fecha_nacimiento">
+                </div>
+
+                  <button type="submit" class="btn btn-success btn-block">Registro</button>
+
+              </form>
+
+            </div>
+
+          </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
