@@ -1,11 +1,12 @@
 <!--<app-columna-navegacion [perfil]="perfil"></app-columna-navegacion>-->
+{{usuario | json}}
 <div class="container">
 <div class="row">
 
 <div class="col-md-4">
 
   <div class="card">
-    <img class="card-img-top fotoPerfilBarraIzquierda" [src]="usuario.imagen" alt="Card image cap">
+    <img class="card-img-top fotoPerfilBarraIzquierda" [src]="usuario.imagen | imgDefaultPipe" alt="Card image cap">
     <div class="card-block text-md-center">
       <input name="nickname" id="inputNickname" class="text-lg-center" style="border:none" type="text" [value]="usuario.nickname" readonly>
     </div>

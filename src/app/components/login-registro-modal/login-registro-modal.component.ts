@@ -42,7 +42,8 @@ export class LoginRegistroModalComponent implements OnInit {
                                           Validators.required,
                                           Validators.pattern("^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$")
                                         ]),
-            'password': new FormControl('', Validators.required)
+            'password': new FormControl('', Validators.required),
+            'localidad': new FormControl('', Validators.required)
           })
 
 
