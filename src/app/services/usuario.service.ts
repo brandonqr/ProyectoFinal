@@ -40,7 +40,7 @@ public url:String;
    }
    obtenerUsuarioById(id){
      return this.http.get(`${this.url}/users/${id}`)
-                                                .map(res=>res.json())
+                                                    .map(res=>res.json())
    }
 
 }

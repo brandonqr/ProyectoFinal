@@ -10,6 +10,7 @@ import { ActivatedRoute } from "@angular/router";
 export class EventoComponent implements OnInit {
   public id:string;
   public evento:any;
+  public cambio:any;
   constructor(
     private eService:EventoService,
     private aRouter:ActivatedRoute
@@ -21,13 +22,24 @@ export class EventoComponent implements OnInit {
           this.evento=res;
         },
         err=>{
-          console.log(err);
         }
       )
     })
   }
 
   ngOnInit() {
+  }
+  asistir(){
+    let token=localStorage.getItem('token');
+    this.eService.agregarAsistencia(this.id,token,this.evento).subscribe(
+      res=>{
+        console.log(res);
+      },
+      err=>{
+        console.log(err)
+        this.cambio=(this.cambio==true)?false:true;
+      }
+    )
   }
 
 }

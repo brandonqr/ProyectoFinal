@@ -31,5 +31,15 @@ public evento:any;
      return this.http.get(`${this.url}/eventos/${id}`)
                                                 .map(res=>res.json())
    }
+   agregarAsistencia(id, token, evento){
+
+     let headers=new Headers({
+                              'Content-Type': 'application/json',
+                              'Authorization': token
+                            });
+    let url=`${this.url}/eventos/${id}/favorite`;
+     return this.http.post(`${this.url}/eventos/${id}/favorite`, evento,  {headers:headers})
+                      .map(res=>res.json());
+   }
 
 }

@@ -62,6 +62,7 @@ width: 2px;
 .sebm-google-map-container {
   height: 300px;
 }
+/**/
 .imagenEventoIndex{
   width: 300px;
   height: 300px;
@@ -73,13 +74,10 @@ width: 2px;
 }
 .datosUsr{
   color:red;
-  display:inline-block;
-  margin:0 auto;
   margin-right:10px;
-  font-size:19px;
 }
-.infoUsuarioPerfil{
-  padding-left:100px;
-  padding-top:25px;
-  border:1px solid red;
+.imageEventIndex{
+  margin-right:auto;
+  margin-left:auto;
+
 }

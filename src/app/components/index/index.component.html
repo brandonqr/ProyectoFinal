@@ -1,13 +1,24 @@
-<div *ngFor="let evento of eventos">
-<a [routerLink]="['/evento',evento._id]">{{evento._id}}</a>
-</div>
-<div *ngFor="let evento of eventos">
-  <div class="card" [routerLink]="['/evento',evento._id]">
-    <img class="card-img-top imagenEventoIndex" [src]="evento.imagen | imgDefaultPipe" alt="Evento">
-    <div class="card-block text-md-center">
-      <span class="datosEvento">Nombre:</span> {{evento.nombre}}
-      <span class="datosEvento">Fecha:</span> {{evento.fecha}}
-      <span class="datosEvento">Descripcion:</span> {{evento.descripcion}}
+
+<div class="container">
+  <div class="row">
+    <div class="card-group" style="display:flex;">
+      <div *ngFor="let evento of eventos">
+
+      <div class="card" style="width: 20rem;display:flex;">
+        <img class="card-img-top"  [src]="evento.imagen | imgDefaultPipe" alt="Event" style="width:256px;height:180px;">
+        <div class="card-block">
+          <h4 class="card-title">Descripcion</h4>
+          <p class="card-text">{{evento.descripcion}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Nombre: {{evento.nombre}}</li>
+          <li class="list-group-item">Fecha: {{evento.fecha}}</li>
+        </ul>
+        <div class="card-block">
+          <a [routerLink]="['/evento',evento._id]">Ir a evento</a>
+        </div>
+      </div>
+      </div>
     </div>
   </div>
 </div>

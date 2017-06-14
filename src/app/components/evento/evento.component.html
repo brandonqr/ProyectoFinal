@@ -1,6 +1,27 @@
 <pre>
 {{evento | json}}
+
 </pre>
 <div *ngIf="evento">
 <a [routerLink]="['/usuario',evento.user._id]">{{evento.user._id}}</a>
+<div *ngIf="cambio">
+
+
+<button
+        type="button"
+        name="button"
+        class="btn btn-outline-warning btn-block"
+        (click)="asistir()"
+        >Abandonar</button>
+</div>
+<div *ngIf="!cambio">
+
+
+<button
+        type="button"
+        name="button"
+        class="btn btn-outline-success btn-block"
+        (click)="asistir()"
+        >Asistir</button>
+</div>
 </div>

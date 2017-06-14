@@ -1,13 +1,17 @@
 
+
 <div *ngIf="usuario">
   <div class="portadaPerfil" [ngStyle]="{'background-image': 'url( ../../../assets/img/portada.png  )'}">
-    <img class="fotoPerfil" [src]="usuario.imagen | imgDefaultPipe" alt="">
   </div>
 </div>
-<div class="infoUsuarioPerfil">
-<p><span class="datosUsr">Nickname: </span>  {{usuario.nickname}}</p>
-<p><span class="datosUsr">Nombre: </span>  {{usuario.nombre}}</p>
-<p><span class="datosUsr">Apellido: </span>  {{usuario.apellidos}}</p>
-<p><span class="datosUsr">Sexo: </span>  {{usuario.sexo}}</p>
-<p><span class="datosUsr">Puntuacion: </span>  {{usuario.puntuacion}}</p>
 <div>
+  <div class="card">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><span class="datosUsr">Nickname: </span>  {{usuario.nickname}}</li>
+      <li class="list-group-item"><span class="datosUsr">Nombre: </span>  {{usuario.nombre}}</li>
+      <li class="list-group-item"><span class="datosUsr">Apellido: </span>  {{usuario.apellidos}}</li>
+      <li class="list-group-item"><span class="datosUsr">Sexo: </span>  {{usuario.sexo}}</li>
+      <li class="list-group-item"><span class="datosUsr">Puntuacion: </span>  {{usuario.puntuacion}}</li>
+    </ul>
+  </div>
+</div>
