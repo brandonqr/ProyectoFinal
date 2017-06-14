@@ -17,11 +17,14 @@ import { APP_ROUTING } from "./app.routes";
 //servicios
 import { UsuarioService } from "./services/usuario.service";
 import { EventoService } from "./services/evento.service";
+import { AuthGuardService } from "./services/auth-guard.service";
 
 //Pipes
 import { imgDefaultPipe } from "./pipes/imageDefault.pipe";
 import { EventoComponent } from './components/evento/evento.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
+import { EventosCreadosComponent } from './components/perfil/eventos-creados/eventos-creados.component';
+import { EventosNoCreadosComponent } from './components/perfil/eventos-no-creados/eventos-no-creados.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +36,9 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
     EventoFormComponent,
     imgDefaultPipe,
     EventoComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    EventosCreadosComponent,
+    EventosNoCreadosComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -47,7 +52,8 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
   ],
   providers: [
     UsuarioService,
-    EventoService
+    EventoService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,13 @@
+<div *ngFor="let evento of eventos">
+  <div *ngIf="evento">
+
+  <div class="card mb-3" [routerLink]="['/evento',evento._id]">
+    <img class="card-img-top" [src]="evento.imagen | imgDefaultPipe" alt="Imagen evento">
+    <div class="card-block">
+      <h4 class="card-title">Nombre: {{evento.nombre}}</h4>
+      <a [routerLink]="['/usuario',evento.user._id]">{{evento.user.nickname}}</a>
+      <p class="card-text">Descripcion: {{evento.descripcion}}</p>
+      <p class="card-text">Fecha: {{evento.fecha | date}}</p>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { Component, NgModule,  NgZone, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from "@angular/forms";
-import { ActivatedRoute } from  "@angular/router";
+import { ActivatedRoute, Router } from  "@angular/router";
 import { MapsAPILoader } from '@agm/core';
 import {  } from '@types/googlemaps';
 import { EventoService } from "../../../services/evento.service";
@@ -35,7 +35,8 @@ lat: number = 51.678418;
 lng: number = 7.809007;
   constructor(
     private ngZone: NgZone,
-    private eService:EventoService
+    private eService:EventoService,
+    private router:Router
    ) { }
 
   ngOnInit() {
@@ -70,6 +71,7 @@ lng: number = 7.809007;
        res=>{
          this.noError=true;
          $("#error").hide();
+         this.router.navigate(['/perfil/eventos-creados']);
        },
        err=>{
          console.log(err)

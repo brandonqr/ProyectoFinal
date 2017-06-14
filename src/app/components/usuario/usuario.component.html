@@ -1,6 +1,10 @@
-<p>
-  usuario works!
-</p>
-<pre>
-{{usuario | json}}
-</pre>
+<div *ngIf="usuario">
+
+
+<div class="card" style="width: 20rem; height:210;margin:0 auto;">
+  <img class="card-img-top" style="width: 20rem; height:210;" [src]="usuario.imagen | imgDefaultPipe" alt="Card image cap">
+  <div class="card-block">
+    <h4 class="card-title">{{usuario.nickname}}</h4>
+  </div>
+</div>
+</div>

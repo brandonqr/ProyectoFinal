@@ -1,24 +1,20 @@
 
 <div class="container">
-  <div class="row">
-    <div class="card-group" style="display:flex;">
-      <div *ngFor="let evento of eventos">
+  <div class="row" *ngFor="let evento of eventos">
+    <div class="col-sm-0 col-md-2"></div>
+    <div class="pointer col-sm-12 col-md-8" [routerLink]="['/evento',evento._id]">
+    <div *ngIf="evento">
 
-      <div class="card" style="width: 20rem;display:flex;">
-        <img class="card-img-top"  [src]="evento.imagen | imgDefaultPipe" alt="Event" style="width:256px;height:180px;">
-        <div class="card-block">
-          <h4 class="card-title">Descripcion</h4>
-          <p class="card-text">{{evento.descripcion}}</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Nombre: {{evento.nombre}}</li>
-          <li class="list-group-item">Fecha: {{evento.fecha}}</li>
-        </ul>
-        <div class="card-block">
-          <a [routerLink]="['/evento',evento._id]">Ir a evento</a>
-        </div>
-      </div>
+    <div class="card mb-3">
+      <img class="card-img-top" [src]="evento.imagen | imgDefaultPipe" alt="Imagen evento">
+      <div class="card-block">
+        <h4 class="card-title">Nombre: {{evento.nombre}}</h4>
+        <a [routerLink]="['/usuario',evento.user._id]">@{{evento.user.nickname}}</a>
+        <p class="card-text">Descripcion: {{evento.descripcion}}</p>
       </div>
     </div>
+    </div>
   </div>
+  <div class="col-md-2"></div>
+</div>
 </div>

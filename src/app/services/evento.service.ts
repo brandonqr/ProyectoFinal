@@ -38,8 +38,27 @@ public evento:any;
                               'Authorization': token
                             });
     let url=`${this.url}/eventos/${id}/favorite`;
-     return this.http.post(`${this.url}/eventos/${id}/favorite`, evento,  {headers:headers})
+     return this.http.post(url, evento,  {headers:headers})
                       .map(res=>res.json());
    }
+   obtenerEventosByUSerId(id){
+     let url=`${this.url}/eventos/${id}/usuario`;
+     return this.http.get(url).map(res=>res.json())
+   }
+   eliminarEvento(id, token){
+     let headers=new Headers({
+                              'Content-Type': 'application/json',
+                              'Authorization': token
+                            });
+     let url=`${this.url}/eventos/${id}`;
+     return this.http.delete(url,{headers:headers}).map(res=>res.json())
+   }
+   /*
+   obtenerEventosSearch( termino:string ){
+       let url = `${ this.url }/categoria/${ termino }`;
 
+       return this.http.get(url)
+       .map( res => {})
+   }
+*/
 }
