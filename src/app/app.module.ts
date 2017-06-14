@@ -16,6 +16,7 @@ import { APP_ROUTING } from "./app.routes";
 
 //servicios
 import { UsuarioService } from "./services/usuario.service";
+import { EventoService } from "./services/evento.service";
 
 //Pipes
 import { imgDefaultPipe } from "./pipes/imageDefault.pipe";
@@ -41,7 +42,8 @@ import { imgDefaultPipe } from "./pipes/imageDefault.pipe";
     ReactiveFormsModule
   ],
   providers: [
-    UsuarioService
+    UsuarioService,
+    EventoService
   ],
   bootstrap: [AppComponent]
 })

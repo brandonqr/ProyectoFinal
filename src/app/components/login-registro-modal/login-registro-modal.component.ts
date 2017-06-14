@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { UsuarioService } from "../../services/usuario.service";
 import { Router} from "@angular/router";
 
+
 declare let jQuery:any;
 declare let $:any;
 
@@ -52,7 +53,6 @@ export class LoginRegistroModalComponent implements OnInit {
   ngOnInit() {
     this.usuario=this.uService.getUsuario();
     this.token=this.uService.getToken();
-    console.log(this.usuario)
   }
   private abrirModal(){
     $("#modalLogin").modal();

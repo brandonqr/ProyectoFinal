@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule } from "@angula
 import { ActivatedRoute } from  "@angular/router";
 import { MapsAPILoader } from '@agm/core';
 import {  } from '@types/googlemaps';
+import { EventoService } from "../../../services/evento.service";
+
 
 declare let jQuery:any;
 declare let $:any;
@@ -16,8 +18,10 @@ declare let google;
 export class EventoFormComponent implements OnInit {
 
 
-
+public token=localStorage.getItem('token');
 eventoForm:FormGroup;
+public error:any;
+public noError:any;
 evento:any={
   nombre : "",
   lugar : "",
@@ -30,7 +34,8 @@ evento:any={
 lat: number = 51.678418;
 lng: number = 7.809007;
   constructor(
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private eService:EventoService
    ) { }
 
   ngOnInit() {
@@ -39,9 +44,10 @@ lng: number = 7.809007;
     this.eventoForm=new FormGroup({
      'nombre': new FormControl('', [Validators.required, Validators.minLength(5)]),
      'descripcion': new FormControl('', Validators.required),
-     'imagen': new FormControl( Validators.required),
-     'fecha': new FormControl(Validators.required),
-     'categoria': new FormControl(Validators.required)
+     'lat': new FormControl('',Validators.required),
+     'lng': new FormControl('',Validators.required),
+     'fecha': new FormControl('',Validators.required),
+     'imagen': new FormControl('',Validators.required)
    })
 
     //set current position
@@ -58,7 +64,18 @@ lng: number = 7.809007;
   }
 }
    crearQuack(){
-
+     this.eventoForm.value.lat=this.lat;
+     this.eventoForm.value.lng=this.lng;
+     this.eService.crearEvento(this.eventoForm.value, this.token).subscribe(
+       res=>{
+         this.noError=true;
+         $("#error").hide();
+       },
+       err=>{
+         console.log(err)
+         this.error=true;
+    }
+     )
   }
 
 dragEndMarcador( marcador:any, evento ){
