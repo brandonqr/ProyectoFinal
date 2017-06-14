@@ -20,6 +20,8 @@ import { EventoService } from "./services/evento.service";
 
 //Pipes
 import { imgDefaultPipe } from "./pipes/imageDefault.pipe";
+import { EventoComponent } from './components/evento/evento.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,9 @@ import { imgDefaultPipe } from "./pipes/imageDefault.pipe";
     PerfilComponent,
     MiPerfilComponent,
     EventoFormComponent,
-    imgDefaultPipe
+    imgDefaultPipe,
+    EventoComponent,
+    UsuarioComponent
   ],
   imports: [
     AgmCoreModule.forRoot({

@@ -38,5 +38,9 @@ public url:String;
                  .map(res=>res.json());
 
    }
+   obtenerUsuarioById(id){
+     return this.http.get(`${this.url}/users/${id}`)
+                                                .map(res=>res.json())
+   }
 
 }

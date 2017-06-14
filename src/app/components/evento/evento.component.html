@@ -1,0 +1,6 @@
+<pre>
+{{evento | json}}
+</pre>
+<div *ngIf="evento">
+<a [routerLink]="['/usuario',evento.user._id]">{{evento.user._id}}</a>
+</div>

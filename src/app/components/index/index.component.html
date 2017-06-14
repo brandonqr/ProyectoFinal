@@ -1,4 +1,13 @@
 <div *ngFor="let evento of eventos">
-  {{evento._id}}
-
+<a [routerLink]="['/evento',evento._id]">{{evento._id}}</a>
+</div>
+<div *ngFor="let evento of eventos">
+  <div class="card" [routerLink]="['/evento',evento._id]">
+    <img class="card-img-top imagenEventoIndex" [src]="evento.imagen | imgDefaultPipe" alt="Evento">
+    <div class="card-block text-md-center">
+      <span class="datosEvento">Nombre:</span> {{evento.nombre}}
+      <span class="datosEvento">Fecha:</span> {{evento.fecha}}
+      <span class="datosEvento">Descripcion:</span> {{evento.descripcion}}
+    </div>
+  </div>
 </div>

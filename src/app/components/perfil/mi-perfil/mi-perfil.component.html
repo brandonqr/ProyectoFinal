@@ -1,8 +1,13 @@
 
-
 <div *ngIf="usuario">
   <div class="portadaPerfil" [ngStyle]="{'background-image': 'url( ../../../assets/img/portada.png  )'}">
     <img class="fotoPerfil" [src]="usuario.imagen | imgDefaultPipe" alt="">
   </div>
 </div>
-{{ usuario | json}}
+<div class="infoUsuarioPerfil">
+<p><span class="datosUsr">Nickname: </span>  {{usuario.nickname}}</p>
+<p><span class="datosUsr">Nombre: </span>  {{usuario.nombre}}</p>
+<p><span class="datosUsr">Apellido: </span>  {{usuario.apellidos}}</p>
+<p><span class="datosUsr">Sexo: </span>  {{usuario.sexo}}</p>
+<p><span class="datosUsr">Puntuacion: </span>  {{usuario.puntuacion}}</p>
+<div>

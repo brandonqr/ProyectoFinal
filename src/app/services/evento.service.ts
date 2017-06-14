@@ -27,5 +27,9 @@ public evento:any;
      return this.http.get(`${this.url}/eventos`)
                                                 .map(res=>res.json())
    }
+   obtenerEventoById(id){
+     return this.http.get(`${this.url}/eventos/${id}`)
+                                                .map(res=>res.json())
+   }
 
 }
